@@ -1,0 +1,103 @@
+:root {
+	--container-width: 82%;
+	--container-xpadding: 1rem;
+	--container-min-width: 240px;
+	--container-max-width: 1320px;
+}
+.is-container, .is-container-f {
+	display: block;
+}
+.is-container-f {
+	padding-left: var(--container-xpadding);
+	padding-right: var(--container-xpadding);
+}
+.is-container {
+	margin: 0 auto;
+	width: clamp(
+		var(--container-min-width), 
+		calc(var(--container-width) + 10vw), 
+		var(--container-max-width)
+	);
+	height: inherit;
+}
+.is-grid-r {
+	display: grid;
+	gap: 0.5rem 2.28%;
+
+	--cols-sm: var(--cols-xs);	
+	--cols-md: var(--cols-sm);	
+	--cols-lg: var(--cols-md);	
+	--cols-xl: var(--cols-lg);	
+	--cols-xxl: var(--cols-xl);	
+	grid-template-columns: repeat(var(--cols, auto-fit) , minmax( var(--cols-min-width, auto), var(--cols-max-width, 1fr) ));
+
+	& > * {
+		--span-sm: var(--span-xs);	
+		--span-md: var(--span-sm);	
+		--span-lg: var(--span-md);	
+		--span-xl: var(--span-lg);	
+		--span-xxl: var(--span-xl);	
+		grid-column: var(--span, auto);
+
+		--place-sm: var(--place-xs);	
+		--place-md: var(--place-sm);	
+		--place-lg: var(--place-md);	
+		--place-xl: var(--place-lg);	
+		--place-xxl: var(--place-xl);
+		place-self: var(--place, auto);
+	}
+}
+@media (min-width: 0px) {
+	.is-grid-r {
+		--cols: var(--cols-xs);
+		& > * { 
+			--span: var(--span-xs); 
+			--place: var(--place-xs); 
+		}
+	}
+}
+@media (min-width: 576px) {
+	.is-grid-r {
+		--cols: var(--cols-sm);
+		& > * { 
+			--span: var(--span-sm); 
+			--place: var(--place-sm); 
+		}
+	}
+}
+@media (min-width: 768px) {
+	.is-grid-r {
+		--cols: var(--cols-md);
+		& > * { 
+			--span: var(--span-md); 
+			--place: var(--place-md); 
+		}
+	}
+}
+@media (min-width: 1024px) {
+	.is-grid-r {
+		--cols: var(--cols-lg);
+		& > * { 
+			--span: var(--span-lg);
+			--place: var(--place-lg);  
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.is-grid-r {
+		--cols: var(--cols-xl);
+		& > * { 
+			--span: var(--span-xl); 
+			--place: var(--place-xl); 
+		}
+	}
+}
+@media (min-width: 1400px) {
+	.is-grid-r {
+		--cols: var(--cols-xxl);
+		& > * { 
+			--span: var(--span-xxl); 
+			--place: var(--place-xxl); 
+		}
+	}
+}

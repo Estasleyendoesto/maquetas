@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+const { title, date, imageSrc, imageAlt, link } = Astro.props;
+---
+
+<article class="card-two-columns">
+    <a href={ link }>
+        <div class="is-grid-r">
+            <div class="col-1">
+                <h3>{ title }</h3>
+                <span class="article-date">{ date }</span>
+            </div>
+            <div class="col-2">
+                <Image src={ imageSrc } inferSize alt={ imageAlt } />
+            </div>
+        </div>
+    </a>
+</article>
+
+<style>
+    :root {
+        --card-small-title-font-size: 1rem;
+        --card-small-title-line-height: 1.45rem;
+        --card-small-date-font-size: 0.86rem;
+    }
+    .card-two-columns {
+        margin: 1.75rem 0;
+
+        a {
+            text-decoration: none;
+            color: var(--main-text-color);
+            
+            &:hover {
+                text-decoration: underline;
+            }
+            &:hover img {
+                opacity: 0.7;
+            }
+
+            img {
+                transition: 0.4s ease;
+            }
+
+            .is-grid-r {
+                --cols: 3;
+                justify-items: stretch;
+                align-items: space-around;
+    
+                .col-1 {
+                    --span: span 2;
+    
+                    h3 {
+                        font-size: var(--card-small-title-font-size);
+                        line-height: var(--card-small-title-line-height);
+                    }
+    
+                    .article-date {
+                        font-size: var(--card-small-date-font-size);
+                    }
+                }
+            }
+        }
+    }
+</style>

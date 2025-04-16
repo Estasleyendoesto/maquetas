@@ -1,0 +1,139 @@
+@import "@csstools/normalize.css";
+@import "solution.scss";
+
+:root {
+    --container-min-width: 1024px;
+    --container-max-width: 1200px;
+    --grid-cols: 12;
+
+    --header-height: 5rem;
+    --header-font-size: 0.9rem;
+
+    --main-surface-color: #0078c6;
+
+    --index-current-date-font-size: 0.825rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+header {
+    font-size: var(--header-font-size);
+    
+    .main-header {
+        height: var(--header-height);
+    }
+    .is-grid-r.-header {
+        place-items: center stretch;
+        --cols: var(--grid-cols);
+    
+        .col-1 {
+            --span: span 3;
+            justify-self: start;
+
+            hgroup {
+                text-align: center;
+
+                a {
+                    text-decoration: none;
+                    color: var(--main-text-color);
+
+                    h1 {
+                        font-size: 2.2rem;
+                        line-height: 2.2rem;
+                    }
+                    h2 {
+                        font-size: 0.7rem;
+                        line-height: 0.7rem;
+                    }
+                }
+            }
+        }
+        .col-2 {
+            --span: 5 / span 4;
+
+            svg { color: var(--main-surface-color); }
+        }
+        .col-3 {
+            --span: 10 / span 3;
+    
+            nav {
+                height: 100%;
+
+                ul { 
+                    justify-content: end; 
+                    gap: 0 1.5rem;
+                }
+
+                a { 
+                    text-decoration: none; 
+                     &:hover {
+                        text-decoration: underline;
+                     }
+                }
+            }
+        }
+    }
+
+    .main-menu {
+        background-color: var(--main-surface-color);
+
+        nav {
+            ul {
+                li { 
+                    a {
+                        display: block;
+                        padding: 0.65rem 0.5rem;
+                        text-decoration: none;
+                        font-size: 0.915rem;
+                        font-weight: bold;
+                        color: #cce3ef;
+
+                        &:hover {
+                            color: #fff;
+
+                            background-image: url('/onduline.png');
+                            background-repeat: no-repeat;
+                            background-position: 50% 100%;
+                        }    
+                    }
+                }
+            }
+        }
+    }
+}
+.main-wrapper {
+    .is-grid-r.-index-page {
+        --cols: var(--grid-cols);
+    
+        main {
+            --span: span 8;
+
+            span.current-date {
+                display: block;
+                margin: 0;
+                padding: 0.45rem 0;
+                font-size: var(--index-current-date-font-size);
+            }
+            div.articles-two-colums {
+                --cols: 2;
+            }
+        }
+        aside {
+            --span: span 4;
+        }
+    }
+}
+hr.line-stripe-separator, hr.line-stripe-separator-half {
+    margin: 1.6rem 0;
+    height: 0.645rem;
+    border: none;
+    background-image: url("line-stripe.png");
+}
+hr.line-stripe-separator-half {
+    width: 50%;
+    margin-left: 50%;
+}
+hr.line-stripe-separator.-no-margin {
+    margin: 0;
+}

@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+---
+<section class="media-news">
+    <div class="is-grid-r -media">
+        <div>
+            <h2 class="video"><span />Videos</h2>
+            <div>
+                <Image src="https://picsum.photos/300/300" inferSize alt="Probando123" />
+            </div>
+        </div>
+        <div>
+            <h2 class="photo"><span />Photos</h2>
+            <div>
+                <Image src="https://picsum.photos/300/302" inferSize alt="Probando123" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section.media-news {
+        height: 300px;
+        background-color: black;
+
+        .is-grid-r.-media {
+            --cols: 2;
+            height: inherit;
+            padding: 0.5rem;
+
+            h2 {
+                font-size: 1.65rem;
+                font-weight: 400;
+                color: #eeeeee;
+
+                &.video span,
+                &.photo span {
+                    margin-right: 0.6rem;
+                    width: 25px;
+                    height: 26px;
+                    display: inline-block;
+                    background-repeat: no-repeat;
+                }
+                &.video span {
+                    background-image: url('/video.png');
+                }
+                &.photo span {
+                    background-image: url('/photo.png');
+                }
+            }
+            div {
+                overflow: hidden;
+            }
+        }
+    }
+</style>

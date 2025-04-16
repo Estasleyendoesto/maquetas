@@ -1,11 +1,48 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CardTwoColumns from "../components/CardTwoColumns.astro";
+import ArticlesColumn from "../components/ArticlesColumn.astro";
+import MediaNews from "../components/MediaNews.astro";
+import InterestingContent from "../components/InterestingContent.astro";
+import PageTopBtn from "../components/PageTopBtn.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { articles } from "../data/articles"
+const half = Math.ceil(articles.length / 2);
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Home">
+    <div class="main-wrapper">
+        <div class="is-container">
+            <div class="is-grid-r -index-page">
+                <main>
+                    <span class="current-date">Tuesday, April 15, 2025</span>
+                    <CardTwoColumns 
+                        title = "Japan ruling parties mull utility subsidies to offset higher bills"
+                        description = "TOKYO (Kyodo) -- Senior members of Japan's ruling parties agreed Tuesday to consider reinstating subsidies to reduce summer electricity and gas bills,"
+                        imageSrc = "https://picsum.photos/300/300"
+                        imageAlt = "Un gatito"
+                        link = "#"
+                    />
+                    <hr class="line-stripe-separator" />
+                    <div class="is-grid-r articles-two-colums">
+                        <ArticlesColumn 
+                            title = "Top Stories"
+                            articles = { articles.slice(0, half) }
+                        />
+                        <ArticlesColumn 
+                            title = "Editor's Picks"
+                            articles = { articles.slice(half) }
+                        />
+                    </div>
+                    <hr class="line-stripe-separator-half" />
+                    <MediaNews />
+                </main>
+                <aside>
+                    <InterestingContent />
+                </aside>
+            </div>
+        </div>
+        <PageTopBtn />
+        <hr class="line-stripe-separator -no-margin" />
+    </div>
+</BaseLayout>

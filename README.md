@@ -1,5 +1,9 @@
 # Astro Starter Kit: Basics
 
+### Notas
+- https://mainichi.jp/english/
+
+
 ```sh
 npm create astro@latest -- --template basics
 ```

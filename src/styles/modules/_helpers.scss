@@ -1,0 +1,47 @@
+.text-light {
+	font-weight: 300;
+}
+.text-bold {
+	font-weight: 400;
+}
+.text-right {
+	text-align: right;
+}
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-justify {
+	text-align: justify;
+}
+.is-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.is-circle {
+	border-radius: 50%;
+} 
+.is-rounded {
+	border-radius: 0.28rem;
+}
+.is-flex  { display: flex; }
+.is-grid  { display: grid; }
+.is-block { display: block; }
+table.first-column-bold {
+	td:first-child {
+		font-weight: bold;
+	}
+}
+table.row-hoverable {
+	tbody > tr:hover {
+		background-color: var(--table-bg-color);
+	}
+}
+table.cell-hoverable {
+	tbody td:hover {
+		background-color: var(--table-bg-color);
+	}
+}

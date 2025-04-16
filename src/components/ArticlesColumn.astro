@@ -1,0 +1,28 @@
+---
+import CardTwoColumnsSmall from "../components/CardTwoColumnsSmall.astro";
+const { title, articles } = Astro.props;
+---
+
+<section>
+    <h2>{ title }</h2>
+    {articles.map((article: JSON) => (
+        <CardTwoColumnsSmall 
+            title = { article.title }
+            date = { article.date }
+            imageSrc = { article.imageSrc }
+            imageAlt = { article.imageAlt }
+            link = { article.link }
+        />
+    ))}
+</section>
+
+<style>
+    :root {
+        --column-title-font-size: 1.45rem;
+    }
+    h2 {
+        font-size: var(--column-title-font-size);
+        line-height: var(--column-title-font-size);
+        font-weight: 400;
+    }
+</style>
