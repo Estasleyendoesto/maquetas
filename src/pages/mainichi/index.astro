@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/mainichi/BaseLayout.astro";
+import CardTwoColumns from "../../components/mainichi/CardTwoColumns.astro";
+import ArticlesColumn from "../../components/mainichi/ArticlesColumn.astro";
+import MediaNews from "../../components/mainichi/MediaNews.astro";
+import InterestingContent from "../../components/mainichi/InterestingContent.astro";
+
+import { articles } from "../../data/mainichi/articles"
+const half = Math.ceil(articles.length / 2);
+---
+
+<BaseLayout title="Home">
+    <div class="main-wrapper">
+        <div class="is-container">
+            <div class="is-grid-r -index-page">
+                <main>
+                    <span class="current-date">Tuesday, April 15, 2025</span>
+                    <CardTwoColumns 
+                        title = "Japan ruling parties mull utility subsidies to offset higher bills"
+                        description = "TOKYO (Kyodo) -- Senior members of Japan's ruling parties agreed Tuesday to consider reinstating subsidies to reduce summer electricity and gas bills,"
+                        imageSrc = "https://picsum.photos/300/300"
+                        imageAlt = "Un gatito"
+                        link = "#"
+                    />
+                    <hr class="line-stripe-separator" />
+                    <div class="is-grid-r articles-two-colums">
+                        <ArticlesColumn 
+                            title = "Top Stories"
+                            articles = { articles.slice(0, half) }
+                        />
+                        <ArticlesColumn 
+                            title = "Editor's Picks"
+                            articles = { articles.slice(half) }
+                        />
+                    </div>
+                    <hr class="line-stripe-separator-half" />
+                    <MediaNews />
+                </main>
+                <aside>
+                    <InterestingContent />
+                </aside>
+            </div>
+        </div>
+    </div>
+</BaseLayout>

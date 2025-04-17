@@ -2,7 +2,7 @@
 
 ### Notas
 - https://mainichi.jp/english/
-
+- https://www.san-ai-obbli.com/
 
 ```sh
 npm create astro@latest -- --template basics

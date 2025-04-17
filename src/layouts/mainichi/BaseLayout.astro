@@ -1,5 +1,7 @@
 ---
-import '../styles/main.scss';
+import '../../styles/mainichi/main.scss';
+import PageTopBtn from "../../components/mainichi/PageTopBtn.astro";
+import Footer from '../../components/mainichi/Footer.astro';
 
 const { title } = Astro.props;
 ---
@@ -67,5 +69,8 @@ const { title } = Astro.props;
             </div>
         </header>
         <slot />
+        <PageTopBtn />
+        <hr class="line-stripe-separator -no-margin" />
+        <Footer />
     </body>
 </html>
