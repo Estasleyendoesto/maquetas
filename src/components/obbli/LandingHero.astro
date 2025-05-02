@@ -1,0 +1,85 @@
+---
+import Image from "astro/components/Image.astro"
+import cityImage from "../../assets/obbli/mv_01_pc.jpg";
+---
+<section class="hero-section">
+    <div class="header">
+        <h2>人々の生活と産業を支えるパートナーを目指して</h2>
+    </div>
+    <div class="is-grid">
+        <div class="c1"><span></span></div>
+        <div class="c2"></div>
+        <div class="carousel">
+            <Image src={ cityImage } alt="Saturada ciudad" />
+        </div>
+    </div>
+</section>
+
+
+<style>
+.hero-section {
+    .header {
+        padding: 2.8rem 1.25rem;
+        padding-top: 4.86rem;
+
+        h2 {
+            width: 18rem;
+            font-size: 1.42rem;
+            font-weight: 800;
+        }
+    }
+    .is-grid {
+        height: 25rem;
+        grid-template-areas: 
+            ". carousel"
+            "c1 carousel"
+            "c2 carousel";
+
+        grid-template-columns: 3.8rem 1fr;
+        grid-template-rows: 1fr 4.5fr 1fr;
+
+        .c1 {
+            grid-area: c1;
+            background-color: #527dcf;
+            position: relative;
+
+            span {
+                display: block;
+
+                &::before {
+                    content: "scroll";
+
+                    display: block;
+                    transform: rotate(-90deg);
+
+                    position: absolute;
+                    left: 0.5rem;
+                    bottom: 6.5rem;
+
+                    text-transform: uppercase;
+                    font-size: 0.72rem;
+                    font-weight: 600; 
+                    color: white;
+                }
+            }
+        }
+        .c2 {
+            grid-area: c2;
+            background-color: #f39c00;
+        }
+        .carousel
+        {
+            grid-area: carousel;
+            overflow: hidden;
+            height: 100%;
+
+            img {
+                height: inherit;
+                object-fit: cover;
+                object-position: right;
+                transform: scale(1.6); /* Probando */
+            }
+        }
+    }
+}
+</style>

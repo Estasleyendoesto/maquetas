@@ -1,0 +1,34 @@
+---
+import '../../styles/obbli/main.scss';
+
+import { Image } from 'astro:assets';
+import mailIcon from '../../assets/obbli/mail-icon.png';
+
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página</title>
+</head>
+<body>
+    <header>
+        <div class="is-flex">
+            <hgroup>
+                <a href="#">
+                    <h1>Obbli</h1>
+                    <h2>SAN-AI OBBLI</h2>
+                </a>
+            </hgroup>
+            <nav>
+                <ul class="is-horizontal-list mobile-menu">
+                    <li><a href="#" class="contact">Contact</a></li>
+                    <li><a href="#" class="menu">Menu</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <slot />
+</body>
+</html>

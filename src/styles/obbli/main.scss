@@ -4,7 +4,6 @@
 @font-face {
     font-family: 'NotoSansJP';
     src: url('/obbli/NotoSansJP-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
     font-style: normal;
 }
 
@@ -24,6 +23,7 @@ header {
 
         hgroup {
             min-width: 10.62rem;
+            margin-left: 1.62rem;
 
             a {
                 display: block;
@@ -47,12 +47,12 @@ header {
                 li {
                     a {
                         display: block;
-                        padding: 1rem;
+                        padding: 1rem 1.6rem;
                         color: white;
                         text-indent: -9999px;
                         background-repeat: no-repeat;
                         background-position: center;
-                        background-size: contain;
+                        background-size: 50%;
                     }
                     a.contact {
                         background-image: url('/obbli/mail-icon.png');
@@ -61,6 +61,7 @@ header {
                     a.menu {
                         background-image: url('/obbli/menu-icon.png');
                         background-color: #527dcf;
+                        background-size: 60%;
                     }
                 }
             }

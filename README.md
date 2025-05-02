@@ -3,6 +3,10 @@
 ### Notas
 - https://mainichi.jp/english/
 - https://www.san-ai-obbli.com/
+- https://fonts.google.com/icons?icon.style=Rounded
+- https://swiperjs.com/
+- https://cssloaders.github.io/
+- https://glyphter.com/
 
 ```sh
 npm create astro@latest -- --template basics

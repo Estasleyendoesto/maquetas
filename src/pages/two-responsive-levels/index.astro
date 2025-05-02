@@ -1,0 +1,37 @@
+---
+import "../../styles/solution.scss";
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Two levels no-responsive</title>
+    </head>
+    <body>
+        <div class="is-container-fixed">
+            <h1>Two levels no-responsive</h1>
+            <p>El contenido no es responsive (no se estira ni se encoge dinámicamente), tiene únicamente dos niveles
+                de redimensionamiento: mobiles/tables (768px) y sobremesa (hasta 1200px).
+            </p>
+        </div>
+
+    </body>
+</html>
+
+<style>
+    .is-container-fixed {
+        width: max(400px, 100%);
+        padding-left: var(--container-xpadding);
+	    padding-right: var(--container-xpadding);
+        margin: 0 auto;
+        background-color: cyan;   
+    }
+
+    @media (min-width: 768px) {
+        .is-container-fixed {
+            width: min(1200px, 100%);
+            background-color: lime;
+        {
+    }
+</style>
