@@ -1,0 +1,53 @@
+---
+const { idName, className } = Astro.props;
+---
+<button id={ idName } class=`menu-cross ${ className }`>
+    <span></span>
+</button>
+
+<style>
+    button.menu-cross {
+        --cross-size: 42px;
+        --cross-color: rgba(0, 0, 0, 0.9);
+        --cross-radius: 4px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: var(--cross-size);
+        height: var(--cross-size);
+        padding: 0;
+        border: 0;
+
+        background-color: inherit;
+
+        span {
+            height: inherit;
+        }
+
+        span::before {
+            content: "";
+            display: block;
+            
+            width: 0.4rem;
+            height: inherit;
+            float: left;
+
+            transform: rotate(-45deg);
+            background-color: var(--cross-color);
+            border-radius: var(--cross-radius);
+        } 
+        span::after {
+            content: "";
+            display: block;
+
+            width: 0.4rem;
+            height: inherit;
+
+            transform: rotate(45deg);
+            background-color: var(--cross-color);
+            border-radius: var(--cross-radius);
+        }
+    }
+</style>

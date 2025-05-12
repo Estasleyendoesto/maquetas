@@ -1,0 +1,116 @@
+---
+import "../../styles/solution.scss"
+import Hamburguer from "../../components/hamburguer.astro";
+---
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Navigators</title>
+    </head>
+    <body>
+        <header>
+            <div class="brand-menu">
+                <a class="brand" href="#"><h1>Basic Menu</h1></a>
+                <Hamburguer idName="dropdown" />
+            </div>
+            <nav id="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="is-container">
+            <h1>Transition Mobile Menu</h1>
+            <p>Se esconde el menú con height en 0 y overflow hidden. <br/>
+            Se revela mediante la clase .open que establece un height definido manualmente en el ul.</p>
+        </div>
+    </body>
+</html>
+
+<script>
+    const menu = document.getElementById("menu");
+    const dropdown = document.getElementById("dropdown");
+
+    const ul = menu?.querySelector("ul");
+    ul?.style.height
+
+    const toggleMenu = dropdown?.addEventListener("click", () => {
+        menu?.classList.toggle("open");
+    });
+</script>
+
+<style>
+    .brand-menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        height: 4.25rem;
+        padding: 0 1.128rem;
+
+        background-color: #ebedf1;
+    }
+
+    .brand {
+        text-decoration: none;
+
+        h1 {
+            font-size: 1.618rem;
+        }
+    }
+
+    nav {
+        height: 0;
+        overflow: hidden;
+        transition: height .5s ease;
+        background-color: #f5f7fa;
+        
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+
+            li {
+                width: 100%;
+                height: 3.26rem;
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    width: 100%;
+                    height: inherit;
+                    border-bottom: 1px solid #dee1e6;
+                    overflow: hidden;
+
+                    font-size: 1.272rem;
+                    text-decoration: none;
+                    font-weight: 300;
+                    line-height: 1.2rem;
+                    text-align: center;
+                }
+                &:last-child a {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    .open {
+        height: calc(3.26rem * 4);
+    }
+
+    #dropdown {
+        background-color: red !important;
+    }
+</style>

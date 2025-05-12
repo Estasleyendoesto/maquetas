@@ -1,0 +1,41 @@
+---
+import "../../styles/solution.scss";
+---
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mobile Menu</title>
+    </head>
+    <body>
+        <header>
+            <button id="menu-toggle" aria-haspopup="true" aria-expanded="false">Menu</button>
+            <nav id="dropdown-menu" hidden>
+                <ul><li>Home</li></ul>
+                <ul><li>Blog</li></ul>
+                <ul><li>Portrait</li></ul>
+                <ul><li>Contact</li></ul>
+            </nav>
+        </header>
+        <h1>Mobile Menu</h1>
+        <p>Ejemplo minimalista y sencillo de un botón desplegable móvil. <br/>
+        Usa el mínimo de JavaScript con el atributo <b>hidden</b>
+        </p>
+    </body>
+</html>
+
+<style>
+    
+</style>
+
+<script>
+    const button = document.getElementById("menu-toggle");
+    const menu = document.getElementById("dropdown-menu");
+
+    button?.addEventListener('click', () => {
+        const isOpen = menu?.hasAttribute('hidden');
+        button.setAttribute('aria-expanded', String(isOpen) );
+        menu?.toggleAttribute('hidden');
+    });
+</script>

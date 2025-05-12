@@ -1,0 +1,119 @@
+---
+import "../../styles/solution.scss"
+import Hamburguer from "../../components/hamburguer.astro";
+---
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Navigators</title>
+    </head>
+    <body>
+        <header>
+            <div class="is-container-f is-horizontal-list">
+                <h1><a href="#">LOGO</a></h1>
+                <Hamburguer idName="navigator-button" />
+            </div>
+            <nav id="navigator-dropdown" class="dropdown">
+                <ul class="is-vertical-list">
+                    <li><a href="">Item</a></li>
+                    <li><a href="">Item</a></li>
+                    <li><a href="">Item</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Infinite List Mobile Menu</h1>
+        </main>
+    </body>
+</html>
+
+<script>
+    /*
+        Receta:
+        1. Obtener la referencia del navigator principal y el button
+        2. Detectar el evento click
+        3. Añadir un trigger para la clase .open
+
+        4. Obtener todos los li hijos de dropdown
+        5. Iterar cada li y sumar su altura
+        6. Si .open está presente añade height, sino vuelve a 0
+    */
+    const button = document.getElementById("navigator-button");
+    const dropdown = document.getElementById("navigator-dropdown");
+
+    button?.addEventListener("click", () => {
+        if (!dropdown) return;
+
+        const items = dropdown.querySelectorAll("ul > li");
+        let height = 0;
+
+        items.forEach((item) => {
+            if (item instanceof HTMLElement) {
+                height += item.offsetHeight;
+            }
+        });
+
+        dropdown.classList.toggle("open");
+        dropdown.style.height = dropdown.classList.contains("open")
+            ? `${ height }px`
+            : `${ 0 }px`;
+    });
+</script>
+
+<style>
+    a {
+        text-decoration: none;
+    }
+    header {
+        height: 60px;
+        background-color: #f5f6f8;
+
+        h1 {
+            font-size: 1.7rem;
+        }
+    }
+    div.is-horizontal-list {
+        height: inherit;
+        justify-content: space-between;
+    }
+    nav.dropdown.open {
+    }
+    nav.dropdown {
+        position: absolute;
+        width: 100vw;
+
+        /* height 0 y overflow hidden para ocultar menu */
+        height: 0;
+        overflow: hidden;
+
+        transition: height .45s ease;
+
+        ul {
+            li {
+                /* Importante definir el Height del li */
+                height: 2.62rem;
+
+                a {
+                    display: block;
+                    height: inherit;
+                    padding: 0.25rem;
+                    text-align: center;
+                    line-height: 1.85rem;
+                    background-color: #f5f6f8;
+
+                    border-bottom: 1px solid #ecedf0;
+                    
+                    &:hover {
+                        background-color: #eff0f3;
+                    }
+                    &:active {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+</style>

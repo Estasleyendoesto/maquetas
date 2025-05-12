@@ -1,5 +1,10 @@
 @import "@csstools/normalize.css";
 @import "../solution.scss";
+@import "icons.css";
+
+:root {
+    --header-height: 65px;
+}
 
 @font-face {
     font-family: 'NotoSansJP';
@@ -14,57 +19,4 @@ body {
 a {
     text-decoration: none;
     color: var(--main-text-color);
-}
-
-header {
-    div.is-flex {
-        justify-content: space-between;
-        align-items: center;
-
-        hgroup {
-            min-width: 10.62rem;
-            margin-left: 1.62rem;
-
-            a {
-                display: block;
-    
-                h1 {
-                    background-image: url('/obbli/Z_logo_logo-set.svg');
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    text-indent: -9999px;
-                    font-size: 1rem;
-                }
-                
-                h2 {
-                    font-size: 0;
-                    text-indent: -9999px;
-                }
-            }
-        }
-        nav {
-            ul.mobile-menu {
-                li {
-                    a {
-                        display: block;
-                        padding: 1rem 1.6rem;
-                        color: white;
-                        text-indent: -9999px;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-size: 50%;
-                    }
-                    a.contact {
-                        background-image: url('/obbli/mail-icon.png');
-                        background-color: #333333;
-                    }
-                    a.menu {
-                        background-image: url('/obbli/menu-icon.png');
-                        background-color: #527dcf;
-                        background-size: 60%;
-                    }
-                }
-            }
-        }
-    }
 }

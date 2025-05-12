@@ -1,7 +1,13 @@
 ---
 import Image from "astro/components/Image.astro"
-import cityImage from "../../assets/obbli/mv_01_pc.jpg";
+
+import img01 from "../../assets/obbli/mv_01.jpg";
+import img02 from "../../assets/obbli/mv_02.jpg";
+import img03 from "../../assets/obbli/mv_03.jpg";
+import img04 from "../../assets/obbli/mv_04.jpg";
+
 ---
+
 <section class="hero-section">
     <div class="header">
         <h2>人々の生活と産業を支えるパートナーを目指して</h2>
@@ -10,11 +16,18 @@ import cityImage from "../../assets/obbli/mv_01_pc.jpg";
         <div class="c1"><span></span></div>
         <div class="c2"></div>
         <div class="carousel">
-            <Image src={ cityImage } alt="Saturada ciudad" />
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><Image src={ img01 } alt="" /></div>
+                    <div class="swiper-slide"><Image src={ img02 } alt="" /></div>
+                    <div class="swiper-slide"><Image src={ img03 } alt="" /></div>
+                    <div class="swiper-slide"><Image src={ img04 } alt="" /></div>
+                </div>
+            </div>
+            <!-- <Image src={ cityImage } alt="Saturada ciudad" /> -->
         </div>
     </div>
 </section>
-
 
 <style>
 .hero-section {
@@ -50,14 +63,14 @@ import cityImage from "../../assets/obbli/mv_01_pc.jpg";
                     content: "scroll";
 
                     display: block;
-                    transform: rotate(-90deg);
+                    transform: scale(0.85, 1) rotate(-90deg);
 
                     position: absolute;
                     left: 0.5rem;
                     bottom: 6.5rem;
 
                     text-transform: uppercase;
-                    font-size: 0.72rem;
+                    font-size: 0.8rem;
                     font-weight: 600; 
                     color: white;
                 }
@@ -76,8 +89,7 @@ import cityImage from "../../assets/obbli/mv_01_pc.jpg";
             img {
                 height: inherit;
                 object-fit: cover;
-                object-position: right;
-                transform: scale(1.6); /* Probando */
+                object-position: center;
             }
         }
     }

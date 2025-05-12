@@ -1,0 +1,201 @@
+---
+import { Image } from 'astro:assets';
+
+---
+<header>
+    <div class="is-flex">
+        <a href="#">
+            <h1>Obbli</h1>
+            <p>SAN-AI OBBLI</p>
+        </a>
+        <nav>
+            <ul class="is-horizontal-list mobile-menu">
+                <li><a href="#" class="contact icon-mail"><span>Contact</span></a></li>
+                <li>
+                    <button class="menu icon-menu"><span>Menu</span></button>
+                    <div class="mobile-hidden-menu">
+                        <ul>
+                            <li><a href="#">SAN-AI Obbli</a></li>
+                            <li class="mobile-dropdown-menu">
+                                <div>
+                                    <a href="#">SAN-AI Obbli Dropdown</a>
+                                    <button class="menu-toggle icon-add"><span>More</span></button>
+                                </div>
+                                <ul class="dropdown hidden">
+                                    <li><a href="#">Option 1</a></li>
+                                    <li><a href="#">Option 2</a></li>
+                                    <li><a href="#">Option 3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<style>
+    header {
+        height: var(--header-height);
+
+        div.is-flex {
+            height: inherit;
+            justify-content: space-between;
+            align-items: center;
+
+            & > a {
+                display: block;
+                min-width: 10.62rem;
+                margin-left: 1.62rem;
+
+                h1 {
+                    background-image: url('/obbli/Z_logo_logo-set.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    text-indent: -9999px;
+                    font-size: 1rem;
+                }
+                p {
+                    font-size: 0;
+                    text-indent: -9999px;
+                }
+            }
+            & > nav {
+                height: inherit;
+
+                ul.mobile-menu {
+                    height: inherit;
+
+                    & > li {
+                        height: inherit;
+
+                        & > a, & > button {
+                            display: block;
+                            height: inherit;
+                            padding: 0 1.2rem;
+                            border: none;
+                            color: white;
+                            font-size: 1.2rem;
+                            line-height: var(--header-height);
+
+                            &:hover {
+                                opacity: 0.926;
+                            }
+                            
+                            & > span {
+                                display: inline-block;
+                                text-indent: -9999px;
+                            }
+                        }
+                        a.contact {
+                            background-color: #333333;
+                        }
+                        button.menu {
+                            background-color: #527dcf;
+                        }
+                    }
+
+                    div.mobile-hidden-menu {
+                        height: calc( 100vh - var(--header-height) );
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        z-index: 999;
+                        background-color: rgba(0, 0, 0, 0.4);
+
+                        & > ul {
+                            --mobile-menu-height: 520px;
+                            width: 92.6vw;
+                            height: var(--mobile-menu-height);
+                            margin: 1.25rem auto;
+                            border-radius: 2.5%;
+                            list-style: none;
+                            background-color: #ffff;
+
+                            &::before, &::after {
+                                content: "";
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                height: calc(var(--mobile-menu-height) + 3.65rem);
+                                z-index: -1;
+                            }
+                            &::before {
+                                width: 100%;
+                                left: 0;
+                                background-color: #527dcf;
+                            }
+                            &::after {
+                                width: 2.25rem;  
+                                right: 0;
+                                background-color: #f39c00;
+                            }
+
+                            & > li {
+                                & > a, & > div {
+                                    display: block;
+                                    padding: 0.85rem 1.25rem;
+                                    border-bottom: 1px solid #e8eaf1;
+                                    font-weight: 600;
+                                    color: black;
+
+                                    &:hover {
+                                        opacity: 0.8;
+                                    }
+                                }
+                            }
+
+                            & li.mobile-dropdown-menu {
+                                & > div {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: stretch;
+                                    padding: 0;
+
+                                    & > a {
+                                        color: black;
+                                        padding: 0.85rem 1.25rem;
+                                    }
+                                    & > button {
+                                        padding: 0 1.1rem;
+                                        border: none;
+                                        border-left: 1px solid #e8eaf1;
+                                        background-color: white;
+                                        color: #527dcf;
+
+                                        & > span {
+                                            display: inline-block;
+                                            text-indent: -9999px;
+                                        }
+                                    }
+                                }
+                                & > ul.dropdown {
+                                    margin-left: 0;
+                                    height: 120px;
+                                    overflow: hidden;
+                                    transition: height .625s ease-in-out;
+
+                                    background-color: lime;
+
+                                    &.hidden {
+                                        height: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.menu-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+            const dropdown = button.parentElement?.nextElementSibling;
+            dropdown?.classList.toggle('hidden');
+        });
+    });
+</script>

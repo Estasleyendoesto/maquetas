@@ -1,0 +1,36 @@
+---
+const { idName, className } = Astro.props;
+---
+
+<button id={ idName } class={ className }>
+    <div class="hamburguer">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</button>
+
+<style>
+    button {
+        width: 2.8rem;
+        height: 2.8rem;
+        padding: 0.146rem;
+        background-color: inherit;
+        border: none;
+
+        .hamburguer {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 0.236rem;
+            
+            span {
+                display: block;
+                height: 0.4rem;
+                border-radius: 2px;
+                background-color: var(--secondary-color);
+            }
+        }
+    }
+</style>
